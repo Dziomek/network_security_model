@@ -2,3 +2,5 @@ venv
 data
 wrong_results.csv
 data.zip
+data_labelled
+data_ml

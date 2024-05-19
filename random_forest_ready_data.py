@@ -9,14 +9,14 @@ from imblearn.over_sampling import SMOTE
 
 # Słownik ścieżek do plików
 file_paths = [
-    'data_labelled/Friday-WorkingHours-Afternoon-DDos.pcap_ISCX.csv',
-    'data_labelled/Friday-WorkingHours-Afternoon-PortScan.pcap_ISCX.csv',
-    'data_labelled/Friday-WorkingHours-Morning.pcap_ISCX.csv',
-    'data_labelled/Monday-WorkingHours.pcap_ISCX.csv',
-    'data_labelled/Thursday-WorkingHours-Afternoon-Infilteration.pcap_ISCX.csv',
-    'data_labelled/Thursday-WorkingHours-Morning-WebAttacks.pcap_ISCX.csv',
-    'data_labelled/Tuesday-WorkingHours.pcap_ISCX.csv',
-    'data_labelled/Wednesday-workingHours.pcap_ISCX.csv'
+    'data/Friday-WorkingHours-Afternoon-DDos.pcap_ISCX.csv',
+    'data/Friday-WorkingHours-Afternoon-PortScan.pcap_ISCX.csv',
+    'data/Friday-WorkingHours-Morning.pcap_ISCX.csv',
+    'data/Monday-WorkingHours.pcap_ISCX.csv',
+    'data/Thursday-WorkingHours-Afternoon-Infilteration.pcap_ISCX.csv',
+    'data/Thursday-WorkingHours-Morning-WebAttacks.pcap_ISCX.csv',
+    'data/Tuesday-WorkingHours.pcap_ISCX.csv',
+    'data/Wednesday-workingHours.pcap_ISCX.csv'
 ]
 
 # Wczytanie danych i czyszczenie nazw kolumn
@@ -27,7 +27,7 @@ data = pd.concat(data_frames, ignore_index=True)
 print(len(data))
 
 # Usunięcie niepotrzebnych kolumn
-data = data.drop(['Flow ID', 'Source IP', 'Destination IP', 'Timestamp'], axis=1)
+# data = data.drop(['Flow ID', 'Source IP', 'Destination IP', 'Timestamp'], axis=1)
 
 # Kodowanie etykiet (zamiana na liczby całkowite), bo domyślnie są zapisane plaintextem
 label_encoder = LabelEncoder()
@@ -46,7 +46,7 @@ y = data['Label'] # etykiety
 # random_state wybiera losowy seed, w zależności od niego wyniki są różne
 # stratify zapewnia sprawiedliwy podział danych! Wymaga podania etykiet (y)
 # chodzi o to, żeby w zbiorze treningowym i testowym była podobna propocja danych tego samego typu (o tych samych etykietach)
-x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.5, random_state=50, shuffle=True, stratify=y)
+x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=50, shuffle=True, stratify=y)
 
 # Zamiana wartości nieskończonych na NaN
 x_train.replace([np.inf, -np.inf], np.nan, inplace=True)
