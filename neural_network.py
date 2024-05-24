@@ -54,7 +54,7 @@ model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accur
 start_time = time.time()
 print("Training started...")
 
-history = model.fit(x_train, y_train, epochs=10, batch_size=64, validation_data=(x_test, y_test), verbose=2)
+history = model.fit(x_train, y_train, epochs=5, batch_size=128, validation_data=(x_test, y_test), verbose=2)
 
 # Timer end
 end_time = time.time()
@@ -97,7 +97,8 @@ def compute_importance(model, X, y):
         importance[i] = baseline[0] - m[0]
     return importance
 
-importances = compute_importance(model, x_test, y_test_classes)
+# Convert y_test to categorical for importance computation
+importances = compute_importance(model, x_test, y_test)
 
 # Plot feature importance
 feature_names = data.drop('Label', axis=1).columns
