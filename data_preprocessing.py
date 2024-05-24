@@ -3,26 +3,26 @@ import numpy as np
 from sklearn.preprocessing import LabelEncoder, StandardScaler
 
 # Load the data
-file_paths = [
-    'data/friday_ddos.csv',
-    'data/wednesday_dos.csv',
-    'data/tuesday_patators.csv',
-    'data/friday_port_scan.csv',
-    'data/monday_normal.csv',
-    'data/thursday_infiltration.csv',
-    'data/thursday_brf_xss_sqlin.csv',
-    'data/friday_bot.csv'
-]
 # file_paths = [
-#     'data_labelled/Friday-WorkingHours-Afternoon-DDos.pcap_ISCX.csv',
-#     'data_labelled/Friday-WorkingHours-Afternoon-PortScan.pcap_ISCX.csv',
-#     'data_labelled/Friday-WorkingHours-Morning.pcap_ISCX.csv',
-#     'data_labelled/Monday-WorkingHours.pcap_ISCX.csv',
-#     'data_labelled/Thursday-WorkingHours-Afternoon-Infilteration.pcap_ISCX.csv',
-#     'data_labelled/Thursday-WorkingHours-Morning-WebAttacks.pcap_ISCX.csv',
-#     'data_labelled/Tuesday-WorkingHours.pcap_ISCX.csv',
-#     'data_labelled/Wednesday-workingHours.pcap_ISCX.csv'
+#     'data/friday_ddos.csv',
+#     'data/wednesday_dos.csv',
+#     'data/tuesday_patators.csv',
+#     'data/friday_port_scan.csv',
+#     'data/monday_normal.csv',
+#     'data/thursday_infiltration.csv',
+#     'data/thursday_brf_xss_sqlin.csv',
+#     'data/friday_bot.csv'
 # ]
+file_paths = [
+    'data_labelled/Friday-WorkingHours-Afternoon-DDos.pcap_ISCX.csv',
+    'data_labelled/Friday-WorkingHours-Afternoon-PortScan.pcap_ISCX.csv',
+    'data_labelled/Friday-WorkingHours-Morning.pcap_ISCX.csv',
+    'data_labelled/Monday-WorkingHours.pcap_ISCX.csv',
+    'data_labelled/Thursday-WorkingHours-Afternoon-Infilteration.pcap_ISCX.csv',
+    'data_labelled/Thursday-WorkingHours-Morning-WebAttacks.pcap_ISCX.csv',
+    'data_labelled/Tuesday-WorkingHours.pcap_ISCX.csv',
+    'data_labelled/Wednesday-workingHours.pcap_ISCX.csv'
+]
 
 data_frames = [pd.read_csv(path).rename(columns=lambda x: x.strip()) for path in file_paths]
 

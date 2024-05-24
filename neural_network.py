@@ -47,14 +47,14 @@ model.add(Dropout(0.5))
 # Output layer
 model.add(Dense(num_classes, activation='softmax'))
 
-# Kompilacja modelu
+# Model compilation
 model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 
 # Trenowanie modelu
 start_time = time.time()
 print("Training started...")
 
-history = model.fit(x_train, y_train, epochs=5, batch_size=128, validation_data=(x_test, y_test), verbose=2)
+history = model.fit(x_train, y_train, epochs=100, batch_size=64, validation_data=(x_test, y_test), verbose=2)
 
 # Timer end
 end_time = time.time()
